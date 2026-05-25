@@ -1,0 +1,160 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #2e7d32;
+    --color-secondary: #1565c0;
+    --color-accent: #00897b;
+    --color-earth: #b5651d;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased;
+  }
+
+  .dark body {
+    @apply bg-gray-950 text-gray-100;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-md border border-white/20 shadow-glass;
+    background: linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.25) 100%);
+  }
+
+  .dark .glass-card {
+    @apply border-white/10 shadow-glass-dark;
+    background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+  }
+
+  .glass-card-dark {
+    @apply backdrop-blur-md border border-white/10 shadow-glass-dark;
+    background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm text-white transition-all duration-200;
+    background: linear-gradient(135deg, #2e7d32, #1b4d1d);
+  }
+
+  .btn-primary:hover {
+    @apply shadow-lg scale-[1.02];
+    background: linear-gradient(135deg, #256427, #123614);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm border transition-all duration-200;
+    @apply border-forest-500 text-forest-600 hover:bg-forest-50;
+  }
+
+  .dark .btn-secondary {
+    @apply border-forest-400 text-forest-300 hover:bg-forest-900/30;
+  }
+
+  .sidebar-link {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-150 cursor-pointer;
+    @apply text-gray-600 hover:bg-forest-50 hover:text-forest-700;
+  }
+
+  .dark .sidebar-link {
+    @apply text-gray-400 hover:bg-forest-900/30 hover:text-forest-300;
+  }
+
+  .sidebar-link.active {
+    @apply bg-forest-100 text-forest-800 font-semibold;
+  }
+
+  .dark .sidebar-link.active {
+    @apply bg-forest-900/50 text-forest-200;
+  }
+
+  .stat-badge {
+    @apply inline-flex items-center gap-1 text-xs font-semibold px-2 py-0.5 rounded-full;
+  }
+
+  .stat-badge.up {
+    @apply bg-emerald-100 text-emerald-700;
+  }
+
+  .dark .stat-badge.up {
+    @apply bg-emerald-900/40 text-emerald-400;
+  }
+
+  .stat-badge.down {
+    @apply bg-red-100 text-red-700;
+  }
+
+  .dark .stat-badge.down {
+    @apply bg-red-900/40 text-red-400;
+  }
+
+  .section-title {
+    @apply text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3;
+  }
+
+  .data-table {
+    @apply w-full text-sm;
+  }
+
+  .data-table th {
+    @apply text-left text-xs font-semibold uppercase tracking-wider text-gray-500 pb-2 border-b border-gray-200;
+  }
+
+  .dark .data-table th {
+    @apply text-gray-400 border-gray-700;
+  }
+
+  .data-table td {
+    @apply py-2.5 border-b border-gray-100 text-gray-700;
+  }
+
+  .dark .data-table td {
+    @apply border-gray-800 text-gray-300;
+  }
+
+  .data-table tr:last-child td {
+    @apply border-0;
+  }
+}
+
+@layer utilities {
+  .text-gradient-forest {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #2e7d32, #00897b);
+  }
+
+  .text-gradient-sky {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #1565c0, #00897b);
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #b2d9b2 transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #b2d9b2;
+    border-radius: 2px;
+  }
+}
